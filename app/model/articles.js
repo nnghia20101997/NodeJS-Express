@@ -15,12 +15,7 @@ module.exports = {
 
         if(params.currentStatus !== "all") objWhere.status = params.currentStatus;
         if(params.keyword !=="") objWhere.name = new RegExp(params.keyword, 'i');
-        if(params.categorys_id !==''){
-            objWhere["categorys.id"] = params.categorys_id;
-        }else{
-            objWhere = {}
-        }
-
+       
         return ArticlesModel
         .find(objWhere)
         .select("name thumb status special ordering content created modified categorys.name")
