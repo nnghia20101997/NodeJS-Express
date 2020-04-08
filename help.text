@@ -1,0 +1,32 @@
+
+Cài đặt môi trường NodeJS
+>> download: https://nodejs.org/en/
+
+Công cụ hổ trợ: Visual Studio Code
+>> download: https://code.visualstudio.com/
+
+Mở CMD hoặc Git Bash Here và cd đến thư mục NODEJS-EXPRESS vưa download trên githup
+Gõ câu lệnh: npm install
+Sau đó gõ lệnh: code .   //để mở Visual Studio Code
+
+Tiếp theo sẽ gõ lệnh: npm start
+Server sẽ chạy ở port: localhost:3000
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+LOGIN vào vùng quản trị:
+    tài khoản: admin
+    mật khẩu: 123456
+
+Database: sử dụng mongoDB Atlas
+>> https://account.mongodb.com/account/login
+
+    taikhoan: nnghia20101997@gmail.com
+    matkhau:  nnghia20101997@#$%
+
+chọn Database: trainingNodeJs và chọn COLLECTIONS đây là nơi lưu trữ dư liệu!
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>THANK YOU<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
