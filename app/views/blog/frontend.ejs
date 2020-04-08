@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+	<head>
+		<% include ./elements/header  %>
+	</head>
+	<body>
+		<header>
+			<% include ./elements/menu %>
+		</header>
+		
+		<div class="site-main-container">
+			
+			<% if(topPost == true){ %>
+				<% include ./elements/topPost %>
+			<% } %>
+
+			<%- body %>
+		</div>
+		
+		<% include ./elements/footer %>
+		<% include ./elements/scripts  %>
+	</body>
+</html>

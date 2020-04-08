@@ -1,0 +1,11 @@
+<%
+    selectboxHelper = (name, groupsItems, item) => {
+        let xhtml = '';
+        let classGroups = '';
+        groupsItems.forEach( (data, index) => {
+            let id = (data.id == undefined)? 'novalue' : data.id;
+            xhtml += `<option value="${id}">${data.name}</option>`;
+        })
+        return ` <select name="${name}" class="form-control">${xhtml}</select>`;
+    }
+%>

@@ -1,0 +1,11 @@
+<% 
+fillterStatusHelper = (linkReFix, statusFillter, keyword) => {
+        let xhtmlResult = "";
+        statusFillter.forEach( (data, index) =>{
+            let link = linkReFix +"status/" + data.value;
+            if(keyword !== "" && keyword !== 'undefinded') link += '?search=' + keyword;
+            xhtmlResult += `<a class="btn m-b-sm btn-${data.class} btn-sm" href="${link}"> ${data.name.toUpperCase()} (${data.count}) </a>`;
+      })  
+      return xhtmlResult;
+    } 
+%>

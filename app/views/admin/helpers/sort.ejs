@@ -1,0 +1,29 @@
+<%
+    sortHelper = (linkReFix, name, sortFile, currentSortField, currentSortType, options) => {
+
+        (currentSortType == 'asc')? currentSortType = 'desc' : currentSortType = "asc";
+        let link = linkReFix +'sort/' + sortFile + '/'+ currentSortType;
+        let style = '';
+        if(options!== undefined){
+            style = `style = "${options}"`
+        }else{
+            '';
+        }
+        
+        let icon = "";
+        if(sortFile === currentSortField){
+            (currentSortType == 'asc')? icon = "glyphicon glyphicon-chevron-up": icon = "glyphicon glyphicon-chevron-down";
+        }else
+        {
+            icon = "glyphicon glyphicon-sort";
+        }
+
+        let xhtmlResult = `<th>
+            <a ${style} href="${link}">${name}
+                <span class="${icon}"></span>
+            </a>
+        </th>`;
+
+        return xhtmlResult;
+    }
+%>

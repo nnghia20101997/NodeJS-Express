@@ -1,0 +1,16 @@
+<% 
+    specialHelper = (linkPrefix, data, id) =>{
+
+        let link = linkPrefix + 'change-special/' +  data + "/" + id;
+        let classSpecial = '';
+        if(data === 'normal'){
+            classSpecial = 'warning';
+        }else if( data === 'toppost'){
+            classSpecial = 'success';
+        }
+
+        let xhtmlResult = `<span class="label label-${classSpecial}">${data}</span>`;
+
+        return `<a href="${link}">${xhtmlResult}</a>`
+    }
+%>

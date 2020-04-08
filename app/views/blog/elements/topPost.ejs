@@ -1,0 +1,57 @@
+<%
+    let folderUploads = 'uploads/articles/'
+%>
+
+<% if(itemSpecials.length === 3){%>
+    <!-- Start top-post Area -->
+<section class="top-post-area pt-10">
+    <div class="container no-padding">
+        <div class="row small-gutters">
+            <div class="col-lg-8 top-post-left">
+                <div class="feature-image-thumb relative">
+                    <div class="overlay overlay-bg"></div>
+                    <img class="img-fluid" src="<%= folderUploads + itemSpecials[0].thumb %>" alt="<%= itemSpecials[0].categorys.name %>">
+                </div>
+                <div class="top-post-details">
+                    <ul class="tags">
+                        <li><a href="/category/<%= itemSpecials[0].categorys.id %>"><%= itemSpecials[0].categorys.name %></a></li>
+                    </ul>
+                    <a href="article/<%= itemSpecials[0].id %>">
+                        <h3><%= itemSpecials[0].name %></h3>
+                    </a>
+                    <ul class="meta">
+                        <li><a href="#"><span class="lnr lnr-user"></span><%= itemSpecials[0].created.user_name %></a></li>
+                        <li><a href="#"><span class="lnr lnr-calendar-full"></span><%= moment(itemSpecials[0].created.time).format(systemConfig.formatFrontend) %></a></li>
+                        <li><a href="#"><span class="lnr lnr-bubble"></span>06 Comments</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 top-post-right">
+
+                <% for(let index = 1; index < itemSpecials.length; index++){ %> 
+                    <div class="single-top-post mt-10">
+                        <div class="feature-image-thumb relative">
+                            <div class="overlay overlay-bg"></div>
+                            <img class="img-fluid" src="<%= folderUploads + itemSpecials[index].thumb %>" alt="<%= itemSpecials[index].categorys.name %>">
+                        </div>
+                        <div class="top-post-details">
+                            <ul class="tags">
+                                <li><a href="/category/<%= itemSpecials[index].categorys.id %>"><%= itemSpecials[index].categorys.name %></a></li>
+                            </ul>
+                            <a href="article/<%= itemSpecials[index].id %>">
+                                <h4><%= itemSpecials[index].name %></h4>
+                            </a>
+                            <ul class="meta">
+                                <li><a href="#"><span class="lnr lnr-user"></span><%= itemSpecials[index].created.user_name %></a></li>
+                                <li><a href="#"><span class="lnr lnr-calendar-full"></span><%= moment(itemSpecials[index].created.time).format(systemConfig.formatFrontend) %></a></li>
+                                <li><a href="#"><span class="lnr lnr-bubble"></span>06 Comments</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End top-post Area -->
+<%} %>

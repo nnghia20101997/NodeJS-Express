@@ -1,0 +1,11 @@
+<% if(errors){ %> 
+    <div class="col-lg-6">
+         <div class="alert alert-danger" role="alert">
+             <ul>
+                 <% errors.errors.forEach( (data, index) =>{ %>
+                     <li><%= data.param.toUpperCase() %>: <%= data.msg %></li>
+                 <% }) %>
+             </ul>
+         </div>
+     </div>
+<% } %>

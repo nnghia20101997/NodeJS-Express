@@ -1,0 +1,7 @@
+<%
+    groubACPHelper = (linkReFix, id, currentGroupsACP) =>{
+        let link = linkReFix +'/change-groups-acp/' + id + '/' + currentGroupsACP;
+        let classGroupsACP = (currentGroupsACP =='yes') ? 'glyphicon-ok-circle' : 'glyphicon-remove-circle';
+        return `<a href="${link}"><span class="glyphicon ${classGroupsACP}"></span></a>`;
+    }
+%>

@@ -1,0 +1,61 @@
+<% 
+    let collection = 'category';
+    let link = systemConfig.prefixAdmin + "/" + collection +"/"
+%>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Form 
+            </div>
+            <div class="panel-body">
+                <div class="row">
+
+                    <% include ./../elements/error %>
+
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+
+                        <form role="form" action="<%= link %>form/save" method="POST">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input class="form-control" id="name" name="name" value="<%= item.name %>" >
+                            </div>
+                            <div class="form-group">
+                                <label>Slug</label>
+                                <input class="form-control" id="title" name="slug" value="<%= item.slug %>" >
+                            </div>
+                            <div class="form-group">
+                                <label>Ordering</label>
+                                <input class="form-control" type="number" name="ordering" value="<%= item.ordering %>" >
+                            </div>
+                            <div class="form-group">
+                                <label>Status</label>
+                                <select name="status" class="form-control" >
+                                    <option value="novalue">Choose Status</option>
+                                    <option value="active" <%= (item.status ==='active')?  'selected = "selected"' : '' %></option>Active
+                                    <option value="inactive" <%= (item.status ==='inactive')?  'selected = "selected"' : '' %></option>Inactive
+                                </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Content</label>
+                                <textarea name="content" id="editor1" rows="10" cols="80">
+                                    <%- item.content %>
+                                </textarea>
+                            </div>
+                            <input class="form-control" name="id" value="<%= item.id %>" type="hidden" >
+                            <button type="submit" class="btn btn-primary">Submit </button>
+                            <a type="button" href="<%= link %>status/" class="btn btn-default">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+        CKEDITOR.replace( 'editor1' );
+</script>

@@ -1,0 +1,8 @@
+<%
+    imageHelper = (folderAvatar, nameAvatar) =>{
+
+        let avatar = (data.avatar !== 'no-avatar')? nameAvatar : "no-avatar.png";
+
+        return `<img class="img-responsive img-avatar" src='${folderAvatar}${avatar}' alt="">`;
+    }
+%>

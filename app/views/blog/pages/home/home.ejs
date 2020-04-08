@@ -1,0 +1,164 @@
+<%
+	let folderUploads = 'uploads/articles/'
+%>
+<!-- Start latest-post Area -->
+<section class="latest-post-area pb-120">
+	<div class="container no-padding">
+		<div class="row">
+			<div class="col-lg-8 post-list">
+				<!-- Start latest-post Area -->
+				<div class="latest-post-wrap">
+					<h4 class="cat-title">BÀI VIẾT MỚI NHẤT</h4>
+					<% itemNews.forEach( (data, index) =>{ %>
+						<div class="single-latest-post row align-items-center">
+							<div class="col-lg-5 post-left">
+								<div class="feature-img relative">
+									<div class="overlay overlay-bg"></div>
+									<img class="img-fluid" src="<%= folderUploads + data.thumb %>" alt="">
+								</div>
+								<ul class="tags">
+									<li><a href="/category/<%= data.categorys.id %>"><%= data.categorys.name %></a></li>
+								</ul>
+							</div>
+							<div class="col-lg-7 post-right">
+								<a href="article/<%= data.id %>">
+									<h4><%= data.name %></h4>
+								</a>
+								<ul class="meta">
+									<li><a href="#"><span class="lnr lnr-user"></span><%= data.created.user_name %></a></li>
+									<li><a href="#"><span class="lnr lnr-calendar-full"></span><%= moment(data.created.time).format(systemConfig.formatFrontend) %></a></li>
+									<li><a href="#"><span class="lnr lnr-bubble"></span>06 Comments</a></li>
+								</ul>
+								<p>
+									<%- data.content.substr(0,30) %>..................
+								</p>
+							</div>
+						</div>		
+					<%})%>
+					
+				</div>
+				<!-- End latest-post Area -->
+				
+				<!-- Start banner-ads Area -->
+				<div class="col-lg-12 ad-widget-wrap mt-30 mb-30">
+					<img class="img-fluid" src="frontend/img/banner-ad.jpg" alt="">
+				</div>
+				<!-- End banner-ads Area -->
+				<!-- Start popular-post Area -->
+				<div class="popular-post-wrap">
+					<h4 class="title">Popular Posts</h4>
+					<div class="feature-post relative">
+						<div class="feature-img relative">
+							<div class="overlay overlay-bg"></div>
+							<img class="img-fluid" src="<%= folderUploads + itemSpecials[0].thumb %>" alt="">
+						</div>
+						<div class="details">
+							<ul class="tags">
+								<li><a href="/category/<%= itemSpecials[0].categorys.id %>"><%= itemSpecials[0].categorys.name %></a></li>
+							</ul>
+							<a href="image-post.html">
+								<h3><%= itemSpecials[0].name %></h3>
+							</a>
+							<ul class="meta">
+								<li><a href="#"><span class="lnr lnr-user"></span><%= itemSpecials[0].created.user_name %></a></li>
+								<li><a href="#"><span class="lnr lnr-calendar-full"></span><%= moment(itemSpecials[0].created.time).format(systemConfig.formatFrontend) %></a></li>
+								<li><a href="#"><span class="lnr lnr-bubble"></span>06 Comments</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="row mt-20 medium-gutters">
+						
+
+						<% for(let index = 1; index < itemSpecials.length; index++){ %> 
+							<div class="col-lg-6 single-popular-post">
+								<div class="feature-img-wrap relative">
+									<div class="feature-img relative">
+										<div class="overlay overlay-bg"></div>
+										<img class="img-fluid" src="<%= folderUploads + itemSpecials[index].thumb %>" alt="">
+									</div>
+									<ul class="tags">
+										<li><a href="article/<%= itemSpecials[index].id %>"><%= itemSpecials[index].categorys.name %></a></li>
+									</ul>
+								</div>
+								<div class="details">
+									<a href="image-post.html">
+										<h4><%= itemSpecials[index].name %></h4>
+									</a>
+									<ul class="meta">
+										<li><a href="#"><span class="lnr lnr-user"></span><%= itemSpecials[index].created.user_name %></a></li>
+										<li><a href="#"><span class="lnr lnr-calendar-full"></span><%= moment(itemSpecials[index].created.time).format(systemConfig.formatFrontend) %></a></li>
+										<li><a href="#"><span class="lnr lnr-bubble"></span>06 Comments</a></li>
+									</ul>
+									<p class="excert">	
+									</p>
+								</div>
+							</div>
+						<% } %>
+					</div>
+				</div>
+				<!-- End popular-post Area -->
+			</div>
+			<div class="col-lg-4">
+				<div class="sidebars-area">
+					<div class="single-sidebar-widget most-popular-widget">
+						<h6 class="title">BÀI VIẾT NGẪU NHIÊN</h6>
+						
+						<% itemsRandom.forEach( (data, index) => {%> 
+							<div class="single-list flex-row d-flex">
+								<div class="thumb"></div>
+									<img src="<%= folderUploads + data.thumb %>" style="width: 310px; height: 310px;" alt="">
+								</div>
+								<div class="details">
+									<a href="/article/<%= data._id %>">
+										<h6><%= data.name %> </h6>
+									</a>
+									<ul class="meta">
+										<li><a href="#"><span class="lnr lnr-calendar-full"></span><%= moment(data.created.time).format(systemConfig.formatFrontend) %></a></li>
+										<li><a href="#"><span class="lnr lnr-bubble"></span>06</a></li>
+									</ul>
+								</div>
+							</div>	
+						<%}) %>
+						
+						
+						
+					</div>
+					<div class="single-sidebar-widget social-network-widget">
+						<h6 class="title">Social Networks</h6>
+						<ul class="social-list">
+							<li class="d-flex justify-content-between align-items-center fb">
+								<div class="icons d-flex flex-row align-items-center">
+									<i class="fa fa-facebook" aria-hidden="true"></i>
+									<p>983 Likes</p>
+								</div>
+								<a href="#">Like our page</a>
+							</li>
+							<li class="d-flex justify-content-between align-items-center tw">
+								<div class="icons d-flex flex-row align-items-center">
+									<i class="fa fa-twitter" aria-hidden="true"></i>
+									<p>983 Followers</p>
+								</div>
+								<a href="#">Follow Us</a>
+							</li>
+							<li class="d-flex justify-content-between align-items-center yt">
+								<div class="icons d-flex flex-row align-items-center">
+									<i class="fa fa-youtube-play" aria-hidden="true"></i>
+									<p>983 Subscriber</p>
+								</div>
+								<a href="#">Subscribe</a>
+							</li>
+							<li class="d-flex justify-content-between align-items-center rs">
+								<div class="icons d-flex flex-row align-items-center">
+									<i class="fa fa-rss" aria-hidden="true"></i>
+									<p>983 Subscribe</p>
+								</div>
+								<a href="#">Subscribe</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End latest-post Area -->

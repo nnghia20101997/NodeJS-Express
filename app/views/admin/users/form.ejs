@@ -1,0 +1,81 @@
+<% 
+    let collection = 'users';
+    let link = systemConfig.prefixAdmin + "/" + collection +"/"
+%>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Form 
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <% include ./../elements/error %>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <form role="form" action="<%= link %>form/save" method="POST" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input class="form-control" name="name" value="<%= item.name %>" >
+                            </div>
+
+                            <div class="form-group">
+                                <label>UserName</label>
+                                <input class="form-control" name="username" value="" >
+                            </div>
+                            <div class="form-group">
+                                <label>PassWord</label>
+                                <input class="form-control" name="password" value="" >
+                            </div>
+
+                            <div class="form-group">
+                                <label>Avatar</label>
+                                <input class="form-control" name="avatar" type="file">
+                                <%if(item.avatar !== 'no-avatar') {%> 
+                                    <img src="uploads/users/<%= item.avatar %>" />
+                                <%}else {%> 
+                                    <img src="uploads/users/no-avatar.png" />
+                                <%}%>    
+                            </div>
+
+                            <input type="hidden" name='avatarOld' value="<%= item.avatar %>" >
+                            <div class="form-group">
+                                <label>Ordering</label>
+                                <input class="form-control" type="number" name="ordering" value="<%= item.ordering %>" >
+                            </div>
+                            <div class="form-group">
+                                <label>Status</label>
+                                <select name="status" class="form-control" >
+                                    <option value="novalue">Choose Status</option>
+                                    <option value="active" <%= (item.status ==='active')?  'selected = "selected"' : '' %></option>Active
+                                    <option value="inactive" <%= (item.status ==='inactive')?  'selected = "selected"' : '' %></option>Inactive
+                                </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Groups</label>
+                                <% include ./../helpers/selectboxHelper.ejs %>
+                                <%- selectboxHelper("groups",groupsItems, item) %>
+                            </div>
+                            <div class="form-group">
+                                <label>Content</label>
+                                <textarea name="content" id="editor1" rows="10" cols="80">
+                                    <%- item.content %>
+                                </textarea>
+                            </div>
+                            <input class="form-control" name="id" value="<%= item.id %>" type="hidden" >
+                            <button type="submit" class="btn btn-primary">Submit </button>
+                            <a type="button" href="<%= link %>status/" class="btn btn-default">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+        CKEDITOR.replace( 'editor1' );
+</script>

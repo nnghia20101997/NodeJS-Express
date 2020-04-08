@@ -1,0 +1,15 @@
+
+<%
+    viewsLogin = (userInfo) =>{
+        let xhtmlResult = ``;
+        let linkConfig  = ``;
+        if(userInfo.username === 'admin'){
+            xhtmlResult = `<a href="auth/logout">Logout</a>`;
+            linkConfig = `<a target="_blank" href="/admin123/users/status/">Vung Quan Tri</a>`;
+        }else{
+            xhtmlResult = `<a href="auth/login">Login</a>`;
+        }
+
+        return `<li>${xhtmlResult}</li> <li>${linkConfig}</li>`;
+    }
+%>
